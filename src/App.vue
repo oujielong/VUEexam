@@ -2,13 +2,15 @@
   <div id="app">
     <!-- 固定头部 -->
     <mt-header class="clearfloat" fixed title="信息管理系统"></mt-header>
-
-      <router-view></router-view>
+    <router-view></router-view>
     <!-- 底部选项栏 -->
     <mt-tabbar fixed v-model="selected" class="bottomTab">
       <mt-tab-item :id="i.id" v-for="i in tabItem" :key="i.id">
-          <i :class="i.pictureSrc" slot="icon" alt="i.picAlt"><mt-badge v-if="i.badge.display" type="error">{{i.badge.mun}}</mt-badge></i>
-        <span>{{i.text}}</span>
+          <router-link :to="{name:i.name}" slot="icon"  :class="i.pictureSrc" >
+            <mt-badge v-if="i.badge.display" type="error"><span>{{i.badge.mun}}</span>
+            </mt-badge>
+          </router-link>
+          <div style="margin-top:10px">{{i.text}}</div>
       </mt-tab-item>
     </mt-tabbar>
   </div>
@@ -23,6 +25,7 @@ export default {
       // tabItem,底部选项标签的对象信息
       tabItem: [
         {
+          name:"home",
           id: "tab1",
           pictureSrc: "icon iconfont icon-wodezhuye",
           text: "图一",
@@ -33,6 +36,7 @@ export default {
           }
         },
         {
+           name:"member",
           id: "tab2",
           pictureSrc: "icon iconfont icon-wodezhuye",
           text: "图二",
@@ -43,6 +47,7 @@ export default {
           }
         },
         {
+          name:"shopCart",
           id: "tab3",
           pictureSrc: "icon iconfont icon-wodezhuye",
           text: "图三",
@@ -53,6 +58,7 @@ export default {
           }
         },
         {
+          name:"search",
           id: "tab4",
           pictureSrc: "icon iconfont icon-wodezhuye",
           text: "图四",
@@ -69,6 +75,8 @@ export default {
 };
 </script>
 
+
+
 <style lang="less" scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -82,15 +90,16 @@ export default {
   border-top: 0.2px solid black;
   .mint-badge.is-error {
     position: relative;
-    top: -37px;
+    top: -47px;
     left: 13px;
   }
   &.mint-tabbar > .mint-tab-item.is-selected {
     background-color: transparent;
   }
+  .mint-badge.is-size-normal
+  {
+    padding:0px;
+  }
 }
-</style>
-<style>
-
 </style>
 

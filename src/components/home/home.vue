@@ -95,30 +95,24 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
   @sectionMargin: 25px;
-  .mint-swipe {
-    max-height: 187px;
-    overflow: hidden;
-    img {
-      width: 100%;
+      .mint-swipe {
+        max-height: 187px;
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+      }
+    .appTrainBody {
+      height: 100%;
+      display: block;
+      padding-top: 40px;
     }
-  }
-  
-  .appTrainBody {
-    height: 100%;
-    display: block;
-    padding-top: 20px;
-    // margin-top:40px;
-    // margin-bottom:40px;
-  }
-  
   .row+.row {
     margin-top: @sectionMargin;
   }
-  
   .section {
     margin-top: @sectionMargin;
   }
-  
   // 九宫格使用图片置换
   .row {
     div {
