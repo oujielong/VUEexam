@@ -6,16 +6,15 @@
 
 <script>
 export default {
-    data() {
-      return{
-
-    }}
+  data() {
+    return {};
+  }
 };
 </script>
 <style lang="less" scoped>
- .appTrainBody {
-    height: 100%;
-    display: block;
-    padding-top: 40px;
-  }
+.appTrainBody {
+  height: calc(100% - 60px);
+  display: block;
+  padding-top: 40px;
+}
 </style>

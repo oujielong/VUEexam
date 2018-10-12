@@ -10,18 +10,18 @@
     <div class="container-fluid section">
       <div class="row">
         <div class="col-xs-4	col-sm-4 ">
-          <a href="#">
-            <!-- <i class="icon iconfont icon-wodezhuye clearfloat" slot="icon"></i> -->
-            <!-- 也许需要使用图片置换 -->
-            <i class="gridBg gridformat  clearfloat" slot="icon"></i>
-            <span>九宫格一</span>
-          </a>
+          <!-- 使用图片作为图标 -->
+          <router-link  slot="icon" :to="{name:'news.list'}">
+            <span class="gridBg gridformat clearfloat"></span>
+            <div>新闻列表</div>
+          </router-link>
         </div>
         <div class="col-xs-4	col-sm-4 ">
-          <a href="#">
-            <i class="icon iconfont icon-wodezhuye clearfloat" slot="icon"></i>
-            <span>九宫格二</span>
-          </a>
+          <router-link slot="icon" :to="{name:'photo.share'}">
+            <!-- 使用字体图标 -->
+            <span class="icon iconfont icon-wodezhuye clearfloat" ></span>
+            <span>图文分享</span>
+          </router-link>
         </div>
         <div class="col-xs-4	col-sm-4 ">
           <a href="#">
@@ -95,30 +95,33 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
   @sectionMargin: 25px;
-      .mint-swipe {
-        max-height: 187px;
-        overflow: hidden;
-        img {
-          width: 100%;
-        }
-      }
-    .appTrainBody {
-      height: 100%;
-      display: block;
-      padding-top: 40px;
+  
+  .mint-swipe {
+    max-height: 187px;
+    overflow: hidden;
+    img {
+      width: 100%;
     }
+  }
+  
+  .appTrainBody {
+    height: calc(100% - 60px);
+    display: block;
+    padding-top: 40px;
+  }
+  
   .row+.row {
     margin-top: @sectionMargin;
   }
+  
   .section {
     margin-top: @sectionMargin;
   }
+  
   // 九宫格使用图片置换
   .row {
     div {
-      a {
-        text-align: -webkit-center;
-        display: block;
+      text-align: -webkit-center;
         .gridBg {
           background-image: url("../../../static/picture/greep.png");
           background-repeat: round;
@@ -128,7 +131,7 @@
           width: 50px;
           height: 50px;
         }
-      }
+      
     }
   }
 </style>

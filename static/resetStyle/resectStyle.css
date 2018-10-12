@@ -11,3 +11,14 @@ html,body{
   .clearfloat {
     zoom: 1;
   }
+.textNowrap
+{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.textellipsis
+{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

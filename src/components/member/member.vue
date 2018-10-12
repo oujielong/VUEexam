@@ -14,7 +14,7 @@ export default {
 </script>
 <style lang="less" scoped>
  .appTrainBody {
-    height: 100%;
+    height: calc(100% - 60px);
     display: block;
     padding-top: 40px;
   }

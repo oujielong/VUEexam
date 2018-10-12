@@ -17,6 +17,19 @@ Vue.prototype.$ajax = Axios;
 //全局配置axios
 Axios.defaults.baseURL = 'localhost:8080//website/';
 
+//引入日期处理，第三方组件,过滤器
+import Moment from 'Moment';
+Vue.filter('converData',function(value){
+  return Moment(value).format('YYYY-MM-DD');
+});
+//引入自定义的组建
+import navBar from './components/until/navbar.vue';
+Vue.component("navBar",navBar);
+
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
+
+
 Vue.use(Mint);
 Vue.config.productionTip = false
 
