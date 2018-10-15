@@ -4,10 +4,15 @@ import Home from '@/components/home/home.vue';
 import Member from '@/components/member/member.vue';
 import ShopCart from '@/components/shopCart/shopCart.vue';
 import Search from '@/components/search/search.vue';
+
 import NewsList from '@/components/news/newsList.vue';
 import NewsDetail from '@/components/news/newsDetail.vue';
+
 import PhotoShare from '@/components/photoShare/photoShare.vue';
 import PhotoDetail from '@/components/photoShare/photoDetail.vue';
+
+import Goodslistl from '@/components/goods/goodsList.vue';
+import GoodsDetail from '@/components/goods/goodsDetail.vue';
 
 Vue.use(Router)
 
@@ -23,6 +28,9 @@ export default new Router({
 
     { name:'photo.share', path: "/photo/share", component: PhotoShare },
     { name:'photo.detail', path: "/photo/detail/:id", component: PhotoDetail },
+    // 商品展示列表
+    { name:'goods.list', path: "/goods/list/", component: Goodslistl },
+    { name:'goods.detail', path: "/goods/detail/", component: GoodsDetail},
 
 
 

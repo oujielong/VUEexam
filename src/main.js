@@ -15,7 +15,27 @@ import '../static/resetStyle/resectStyle.css';
 import Axios from 'axios';//挂載原型
 Vue.prototype.$ajax = Axios;
 //全局配置axios
-Axios.defaults.baseURL = 'localhost:8080//website/';
+// Axios.defaults.baseURL = 'localhost:8080/website/';
+Axios.interceptors.request.use(function (config) {
+  // 在发送请求之前做些什么
+  Indicator.open({
+    text: 'Loading...',
+    spinnerType: 'fading-circle'
+  });
+  return config;
+}, function (error) {
+  // 对请求错误做些什么
+  console.log(error);
+  return Promise.reject(error);
+})
+// Axios:添加响应拦截器
+Axios.interceptors.response.use(function (response) {
+  Indicator.close();
+  return response;
+}, function (error) {
+  return Promise.reject(error);
+});
+
 
 //引入日期处理，第三方组件,过滤器
 import Moment from 'Moment';
@@ -24,8 +44,11 @@ Vue.filter('converData',function(value){
 });
 //引入自定义的组建
 import navBar from './components/until/navbar.vue';
+import comment from './components/until/comment.vue';
 Vue.component("navBar",navBar);
+Vue.component("comment",comment);
 
+// 图片预览插件
 import VuePreview from 'vue2-preview'
 Vue.use(VuePreview)
 

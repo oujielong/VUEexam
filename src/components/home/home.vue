@@ -24,10 +24,11 @@
           </router-link>
         </div>
         <div class="col-xs-4	col-sm-4 ">
-          <a href="#">
-            <i class="icon iconfont icon-wodezhuye clearfloat" slot="icon"></i>
-            <span>九宫格三</span>
-          </a>
+          <router-link slot="icon" :to="{name:'goods.list'}">
+              <!-- 使用字体图标 -->
+              <span class="icon iconfont icon-wodezhuye clearfloat" ></span>
+              <span>商品展示</span>
+            </router-link>
         </div>
   
       </div>
