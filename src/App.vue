@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import connect from '@/components/until/connect.js';
+import prodTools from '@/components/until/prodTools.js';
 export default {
   name: "App",
   data() {
@@ -31,7 +33,7 @@ export default {
           text: "图一",
           picAlt: "图一",
           badge: {
-            display: true,
+            display: false,
             mun: 10
           }
         },
@@ -53,9 +55,9 @@ export default {
           text: "图三",
           picAlt: "图三",
           badge: {
-            display: false,
-            mun: 10
-          }
+            display: true,
+            mun: prodTools.getCountProds()          
+            }
         },
         {
           name:"search",
@@ -71,11 +73,17 @@ export default {
       ]
     };
   },
-  created() {}
+  created() {
+    // 注册监听对象
+    connect.$on("addShopCart",(res)=>{
+      this.tabItem[2].badge.mun +=res;
+    });
+  },
+  methods:{
+    
+  },
 };
 </script>
-
-
 
 <style lang="less" scoped>
 #app {

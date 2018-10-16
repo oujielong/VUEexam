@@ -45,8 +45,10 @@ Vue.filter('converData',function(value){
 //引入自定义的组建
 import navBar from './components/until/navbar.vue';
 import comment from './components/until/comment.vue';
+import myswitch from './components/until/switch.vue';
 Vue.component("navBar",navBar);
 Vue.component("comment",comment);
+Vue.component("myswitch",myswitch);
 
 // 图片预览插件
 import VuePreview from 'vue2-preview'

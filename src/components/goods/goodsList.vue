@@ -5,7 +5,7 @@
             <div class="row">
                 <mt-loadmore  :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
                     <div class="col-xs-6 col-sm-6" v-for="good in goodsList" :key="good.id">
-                        <router-link :to="{name:'goods.detail',params:{id:good.id}}" class="goodsBorder aToBlock"> 
+                        <router-link :to="{name:'goods.detail',params:{goodsid:good.id}}" class="goodsBorder aToBlock"> 
                             <img :src="good.img_url" alt="图片" height="260" width="100%">
                             <!-- 图片下面的描述文字 -->
                             <div class="onPicture">
@@ -46,7 +46,6 @@ export default {
     }},
     methods:{
         loadBottom(){
-            debugger;
             this.getGoodsListByPage(true);
         },
         getGoodsListByPage(more)
