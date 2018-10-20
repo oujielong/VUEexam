@@ -13,6 +13,8 @@ import PhotoDetail from '@/components/photoShare/photoDetail.vue';
 
 import Goodslistl from '@/components/goods/goodsList.vue';
 import GoodsDetail from '@/components/goods/goodsDetail.vue';
+import GoodsComment from '@/components/goods/goodsComment.vue';
+
 
 Vue.use(Router)
 
@@ -29,10 +31,10 @@ export default new Router({
     { name:'photo.share', path: "/photo/share", component: PhotoShare },
     { name:'photo.detail', path: "/photo/detail/:id", component: PhotoDetail },
     // 商品展示列表
-    { name:'goods.list', path: "/goods/list/", component: Goodslistl },
-    { name:'goods.detail', path: "/goods/detail/", component: GoodsDetail},
-
-
+    { name:'goods.list', path: "/goods/list", component: Goodslistl },
+    { name:'goods.detail', path: "/goods/detail", component: GoodsDetail},
+    { name:'goods.comment', path: "/goods/comment", component: GoodsComment},
+    { name:'goods.pictureInfo', path: "/goods/pictureInfo", component: NewsDetail},
 
   ]
 })

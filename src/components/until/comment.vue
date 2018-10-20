@@ -100,11 +100,13 @@ export default {
           this.loadFirstcomment();
         })
         .catch(er => {
-          this.comment.commentList.concat = this.comment.commentList;
+          // this.comment.commentList.concat = this.comment.commentList;
+          this.comment.commentList = this.comment.commentList.concat(this.comment.commentList);
         });
     },
 
     loadFirstcomment() { //加载某个图文的第一页评论
+        debugger;
         this.comment.commentList = this.comment.commentList.concat(this.comment.commentList);
       // this.$ajax.get("photoDetail/getComment/" +this.cid+"?pageIndex="+(this.pageIndex++))//restful风格路径
       // .then(res => {

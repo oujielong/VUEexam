@@ -2,7 +2,10 @@
   <div id="app">
     <!-- 固定头部 -->
     <mt-header class="clearfloat" fixed title="信息管理系统"></mt-header>
-    <router-view></router-view>
+    <transition name="router" mode="out-in">
+
+      <router-view></router-view>
+    </transition>
     <!-- 底部选项栏 -->
     <mt-tabbar fixed v-model="selected" class="bottomTab">
       <mt-tab-item :id="i.id" v-for="i in tabItem" :key="i.id">
@@ -108,6 +111,14 @@ export default {
   {
     padding:0px;
   }
+}
+.router-enter-active,.router-leave-active
+{
+  transition: opacity 0.5;
+}
+.router-enter,.router-leave-to
+{
+  opacity:0;
 }
 </style>
 

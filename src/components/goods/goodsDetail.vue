@@ -61,6 +61,15 @@
                         <div class="col-xs-12 col-sm-12">库存情况：{{goodsInfo.stock}}</div>
                         <div class="col-xs-12 col-sm-12">上架时间：{{goodsInfo.addTime}}</div>
                 </div>
+
+                <div class="row goodsBorder textLeft">
+                    <div class="col-xs-6 col-sm-6">
+                        <button type="button"  @click="goodsCommnet" class="btn btn-primary btn-sm">商品评论</button>
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                         <button type="button"  @click="photoTextDetail" class="btn btn-primary btn-sm">图文详情</button>
+                    </div>
+                </div>
         </div>
     </div>
 </template>
@@ -71,7 +80,6 @@ import prodTools from '@/components/until/prodTools.js';
     export default {
         created() {
             let goodsId =  this.$route.params.goodsid;
-
             // // 获取详情数据
             // this.$ajax.get("goodsDetail/getInfo"+goodsId)
             // .then(res=>{
@@ -99,7 +107,7 @@ import prodTools from '@/components/until/prodTools.js';
                     addTime:"2018-9-12",
                     goods_no:"1232131231231",
                     market_price:"2345",
-                    sell_price:"1234",
+                    sell_price:"123",
                     stock:"60",
                     title:"王者毒药王者毒药王者毒药王者毒药王者毒药王者毒药",
                 },
@@ -125,6 +133,14 @@ import prodTools from '@/components/until/prodTools.js';
                 connect.$emit("addShopCart",this.mun);
                 let commodity = {id:this.goodsId, mun:this.mun};
                 prodTools.addOrUpdate(commodity);
+            },
+            goodsCommnet()
+            {
+                this.$router.push({name:"goods.comment",query:{id:this.goodsId}});
+            },
+            photoTextDetail()
+            {
+                 this.$router.push({name:"goods.pictureInfo",query:{id:this.goodsId}});
             }
         }
 

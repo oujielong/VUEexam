@@ -17,15 +17,30 @@
 export default {
     created()
     {
-        // let id=this.$route.query.id;
+        let id=this.$route.query.id;
+        console.log(id);
         // this.$ajax.get(''+id)
         // .then(res=>{
 
         // })
         // .catch(er=>{
-
         // })
     },
+     beforeRouteEnter (to, from, next) {
+            let title="";
+            if(from.name == "news.list")
+            {
+                title="新闻详情";
+
+            }
+            if(from.name == "goods.detail")
+            {
+                 title="商品图文详情";
+            }
+            next(vm => {
+                vm.barInfo.title=title;
+            });
+        },
   data() {
     return {
         barInfo:{title:"新闻详情"},
@@ -40,9 +55,10 @@ export default {
              党籍处分的决定，听取十二届省委第三轮巡视工作情况汇报。</p><p>贵州省委书记、省人大常委会主任孙志刚主
              持会议并讲话。省委常委，省人大常委会、省政府、省政协有关负责同志参加会议。</p>`
         },
-
-
     }},
+    methods:{
+       
+    }
 
 };
 </script>
